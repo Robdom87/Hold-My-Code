@@ -4,6 +4,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
+
 // TODO: Add CSS loaders and babel to webpack.
 
 module.exports = () => {
@@ -24,13 +25,6 @@ module.exports = () => {
         template: './index.html',
         title: 'Webpack Plugin'
       }),
-     
-      // Injects our custom service worker
-      new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'srv-wrk.js',
-      }),
-
       // Creates a manifest.json file.
       new WebpackPwaManifest({
         fingerprints: false,
@@ -47,33 +41,38 @@ module.exports = () => {
             src: path.resolve('./src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
-          }
+          },
         ],
       }),
-  //   new WorkboxPlugin.GenerateSW({
-  //     // Do not precache images
-  //     exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+      //   new WorkboxPlugin.GenerateSW({
+      //     // Do not precache images
+      //     exclude: [/\.(?:png|jpg|jpeg|svg)$/],
 
-  //     // Define runtime caching rules.
-  //     runtimeCaching: [{
-  //       // Match any request that ends with .png, .jpg, .jpeg or .svg.
-  //       urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+      //     // Define runtime caching rules.
+      //     runtimeCaching: [{
+      //       // Match any request that ends with .png, .jpg, .jpeg or .svg.
+      //       urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
 
-  //       // Apply a cache-first strategy.
-  //       handler: 'CacheFirst',
+      //       // Apply a cache-first strategy.
+      //       handler: 'CacheFirst',
 
-  //       options: {
-  //         // Use a custom cache name.
-  //         cacheName: 'images',
+      //       options: {
+      //         // Use a custom cache name.
+      //         cacheName: 'images',
 
-  //         // Only cache 2 images.
-  //         expiration: {
-  //           maxEntries: 2,
-  //         },
-  //       },
-  //     }],
-  //   }),
-   ],
+      //         // Only cache 2 images.
+      //         expiration: {
+      //           maxEntries: 2,
+      //         },
+      //       },
+      //     }],
+      //   }),
+      // Injects our custom service worker
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'srv-wrk.js',
+      })
+    ],
     module: {
       rules: [
         // CSS loaders
