@@ -12,7 +12,7 @@ const initdb = async () =>
     },
   });
 
-export const putDb = async (id, content) => {
+export const putDb = async (content) => {
 
   const jateDb = await openDB('jate', 1);
 
@@ -20,10 +20,7 @@ export const putDb = async (id, content) => {
 
   const store = tx.objectStore('jate');
 
-  const request = store.put({
-     id: id,
-     cont: content 
-    });
+  const request = store.add({ cont: content });
 
   const result = await request;
   console.log('Content saved to the database', result);
