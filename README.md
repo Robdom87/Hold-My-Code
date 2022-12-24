@@ -2,7 +2,7 @@
 
 ## Description
 
-The Just Another Text Editior is a web based app where in which a user can write and save code snippets and notes with javascript highlighting. The application works online as well as offline and can be installed as a browser application. 
+Hold My Code is a web based app where in which a user can write and save code snippets and notes with javascript highlighting. The application works online as well as offline and can be installed as a browser application. 
 
 ## Table of Contents
 
@@ -12,15 +12,21 @@ The Just Another Text Editior is a web based app where in which a user can write
 
 ## Installation
 
-e-commerce_routing does not require installation.
+Hold My Code does not require installation, but can be installed to be used offline.
 
-e-commerce_routing is dependant on MySQL being present in the users computer. Click here to downnload MySQL.
+Technologies Used:
+- Node.js
+- Javascript
+- Express.js
+- Webpack
+- CodeMirror
+- IndexDB
 
 ## Usage
 
-![Landing Page](./jate.png)
+![Landing Page](assets/hmcImage.png)
 
-[Just Another Text Editor Link](https://just-ate.herokuapp.com/)
+[Deployed Link](https://hold-my-code.herokuapp.com/)
 
 ## License
 
