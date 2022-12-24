@@ -1,7 +1,11 @@
 import { getDb, putDb } from './database';
-import { header } from './header';
+
+let header = `/*
+Just add any code you need under me.
+*/`;
 
 export default class {
+
   constructor() {
     const localData = localStorage.getItem('content');
 
